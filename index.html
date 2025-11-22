@@ -18,7 +18,10 @@
 	<meta name="twitter:title" content="Victor Baguma — Web Developer & Designer | Portfolio" />
 	<meta name="twitter:description" content="Portfolio of Victor Baguma — web developer and designer. Projects, services, and contact information." />
 	<meta name="twitter:image" content="./photos/bv.jpg" />
+	<!-- Performance: Cache control and preloading -->
+	<meta http-equiv="Cache-Control" content="public, max-age=31536000">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="icon" href="./photos/bv.jpg" type="image/jpeg">
@@ -59,6 +62,11 @@ img {
  	height: 100%;
  	width: 100%;
  	object-fit: cover;
+ 	display: block;
+ 	will-change: transform;
+ 	contain: layout style paint;
+ 	backface-visibility: hidden;
+ 	-webkit-font-smoothing: antialiased;
 }
 p {
 	color: black;
@@ -246,7 +254,7 @@ p {
 	top: 0;
 	height: 100%;
 	width: 100%;
-	background-image: url(./photos/Victor2.jpg);
+	background-image: url(./photos/victor.jpg);
 	background-size: cover;
 	background-position: top center;
 	z-index: -2;
@@ -477,6 +485,8 @@ p {
 #projects .project-img img {
 	transition: 0.3s ease transform;
 	display: block;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: antialiased;
 }
 #projects .project-img a img {
 	width: 100%;
@@ -872,7 +882,7 @@ p {
           </div>
           <div class="project-img">
             <a href="https://unistay101.vercel.app/" target="_blank">
-			  <img src="/photos/uni.jpg" alt="Unistay Navigator webapp screenshot" loading="lazy">
+			  <img src="./photos/uni.jpg" alt="Unistay Navigator webapp screenshot" loading="lazy">
             </a>
           </div>
         </div>
@@ -884,7 +894,7 @@ p {
                        </div>
           <div class="project-img">
             <a href="https://ugandaschoolsrugby.com/" target="_blank">
-			  <img src="/photos/usraLogo.png" alt="USRA website logo" loading="lazy">
+			  <img src="./photos/usra.png" alt="USRA website logo" loading="lazy">
             </a>
           </div>
         </div>
@@ -896,7 +906,7 @@ p {
           </div>
           <div class="project-img">
             <a href="https://kampanisbc.com/" target="_blank">
-			  <img src="/photos/k3.jpeg" alt="Kampanis Shoes & Bags website screenshot" loading="lazy">
+			  <img src="./photos/k.jpeg" alt="Kampanis Shoes & Bags website screenshot" loading="lazy">
             </a>
           </div>
         </div>
@@ -908,7 +918,7 @@ p {
           </div>
           <div class="project-img">
             <a href="https://excelconstruction.org/" target="_blank">
-			  <img src="/photos/XL.png" alt="Excel Construction website screenshot" loading="lazy">
+			  <img src="./photos/xl.png" alt="Excel Construction website screenshot" loading="lazy">
             </a>
           </div>
         </div>
@@ -994,6 +1004,23 @@ p {
     </div>
   </section>
   <!-- End Footer -->
+  <!-- Performance: Image Optimization Guide -->
+  <!-- TO REDUCE BUFFERING & IMPROVE LOADING SPEED:
+    1. Compress images using TinyPNG (https://tinypng.com) or ImageOptim
+    2. Convert JPGs to WebP format using Squoosh (https://squoosh.app)
+    3. Recommended max sizes:
+       - Hero/About portrait: 150-200 KB (WebP)
+       - Project images: 100-150 KB (WebP)
+       - Favicon: 20 KB max
+       - Icon images: 30-50 KB max
+    4. Upload compressed images to ./photos/ folder
+    5. Use a CDN (Cloudflare, Netlify, Vercel) for faster global delivery
+    6. Monitor with Google Lighthouse (Dev Tools > Lighthouse) and aim for:
+       - Largest Contentful Paint (LCP) < 2.5s
+       - Cumulative Layout Shift (CLS) < 0.1
+       - First Input Delay (FID) < 100ms
+    7. If hosted on Netlify/Vercel: Enable automatic image optimization
+  -->
   <script>
       const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
